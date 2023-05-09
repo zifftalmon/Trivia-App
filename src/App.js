@@ -2,12 +2,13 @@ import './App.css';
 import './styles/Nav.css'
 import Nav from './components/Nav.tsx';
 import TriviaForm from './components/TriviaForm.tsx';
+import Trivia from './components/Trivia.tsx';
 
 function App() {
   return (
     <div className="App">
       <Nav/>
-      <TriviaForm/>
+      <Trivia/>
     </div>
   );
 }

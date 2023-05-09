@@ -8,7 +8,7 @@ const Nav:React.FC  = () => {
                 <ul>
                     <li>Today's Pick</li>
                     <li>Our Trivias</li>
-                    <li>Craete Your Trivia</li>
+                    <li>Create Your Own Trivia</li>
                     <li>Contact</li>
                 </ul>
             </div>
