@@ -11,17 +11,26 @@ const Trivia:React.FC = () => {
             .then(req => req.json())
             .then(data => setQuestions(data.results))
     },[]);
-    // console.log(questions);
+
+    console.log(questions);
+    
     
     return(
         <div>
             {questions.map((item: any, i:number) => {
-                return (
-                    <div key={i}>
-                        <h2>{i+1}. {item.question}</h2>
-                    </div>
-                )
-                
+                if(item.type == 'multiple') {
+                    return (
+                        <div key={i} className="question_div">
+                            <h2>{i+1}. {item.question}</h2>
+                            <ul>
+                                <input type="checkbox"/>{item.incorrect_answers[0]}<br/>
+                                <input type="checkbox"/>{item.correct_answer}<br/>
+                                <input type="checkbox"/>{item.incorrect_answers[1]}<br/>
+                                <input type="checkbox"/>{item.incorrect_answers[2]}<br/>
+                            </ul>
+                        </div>
+                    )
+                }
             })}
         </div>
     )
