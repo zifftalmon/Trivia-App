@@ -2,15 +2,21 @@ import './App.css';
 import './styles/Nav.css'
 import './styles/Trivia.css'
 import Nav from './components/Nav.tsx';
-import TriviaForm from './components/TriviaForm.tsx';
 import Trivia from './components/Trivia.tsx';
+import TriviaForm from './components/TriviaForm.tsx';
+import {HashRouter, Routes, Route} from 'react-router-dom'
+
 
 function App() {
   return (
-    <div className="App">
-      <Nav/>
-      <Trivia/>
-    </div>
+    <HashRouter>
+      <div className="App">
+        <Nav/>
+        <Routes>
+          <Route exact path='/' element={<Home/>}/>
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
 
