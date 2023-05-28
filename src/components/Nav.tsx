@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom'
 const Nav:React.FC  = () => {
     return(
         <div className='nav'>
-            <h1>Trivia</h1>
+            <h1><Link style={{textDecoration:'none', color:'black'}} to='/'>Trivia</Link></h1>
             <div>
                 <ul>
-                    <li>Today's Pick</li>
-                    <li>Our Trivias</li>
+                    <li>Today's Picks</li>
+                    <li><Link style={{textDecoration:'none', color:'black'}} to='/trivias'>Our Trivias</Link></li>
                     <li>Create Your Own Trivia</li>
                     <li>Contact</li>
                 </ul>

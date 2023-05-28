@@ -14,9 +14,19 @@ const Trivia:React.FC = () => {
 
     console.log(questions);
     
+    const categories: any[] = [];
+
+    for (let index = 0; index < 24; index++) {   
+        categories.push(<option value={index+9}>{index+9}</option>)
+    }
     
     return(
         <div>
+            <form>
+                <select>
+                    {categories}
+                </select>
+            </form>
             {questions.map((item: any, i:number) => {
                 return (
                     <div key={i} className="question_div">
