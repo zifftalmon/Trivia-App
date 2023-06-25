@@ -28,9 +28,11 @@ const Trivia:React.FC = () => {
                 </select>
             </form>
             {questions.map((item: any, i:number) => {
+                const regex = /&quot;|&#039;/g;
+                // const regex2 = 
                 return (
                     <div key={i} className="question_div">
-                        <h2>{i+1}. {item.question}</h2>
+                        <h2>{i+1}. {item.question.split(regex)}</h2>
                         <ul>
                             <input type="radio" name={'trivia'} value={item.incorrect_answers[0]}/>{item.incorrect_answers[0]}<br/>
                             <input type="radio" name={'trivia'} value={item.correct_answer}/>{item.correct_answer}<br/>
