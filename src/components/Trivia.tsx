@@ -14,18 +14,52 @@ const Trivia:React.FC = () => {
 
     console.log(questions);
     
-    const categories: any[] = [];
+    const categoriesValues: any[] = [
+        'general Knowledge',
+        'Books',
+        'Film',
+        'Music',
+        'Musicals & Theatre',
+        'Television',
+        'Video Games',
+        'Board Games',
+        'Sceince & Nature',
+        'Computers',
+        'Mathmetics',
+        'Mythology',
+        'sports',
+        'Geography',
+        'History',
+        'Politics',
+        'Art',
+        'Celebrities',
+        'Animals',
+        'Vehicles',
+        'Comics',
+        'Gadgets',
+        'Anime & Manga',
+        'Cartoon & Animations'
+    ];
 
-    for (let index = 0; index < 24; index++) {   
-        categories.push(<option value={index+9}>{index+9}</option>)
+    const categories = categoriesValues.map((item: any, i: number) => {
+        return(
+            <option value={i+9}>{item}</option>
+        )
+    })
+
+    const getTrivia = (e: { preventDefault: () => void; }) => {
+        console.log(e);
+        
     }
     
     return(
         <div>
-            <form>
+            <form onSubmit={getTrivia}>
                 <select>
                     {categories}
                 </select>
+                <br/>
+                <button type="submit">Find Trivia</button>
             </form>
             {questions.map((item: any, i:number) => {
                 const regex = /&quot;|&#039;/g;
