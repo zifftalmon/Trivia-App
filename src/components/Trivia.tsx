@@ -7,7 +7,7 @@ const Trivia:React.FC = () => {
     const [questions, setQuestions]:any[] = useState([]);
 
     useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=10&category=9&type=multiple')
+        fetch(`https://opentdb.com/api.php?amount=10&category=9&type=multiple`)
             .then(req => req.json())
             .then(data => setQuestions(data.results))
     },[]);
@@ -47,9 +47,11 @@ const Trivia:React.FC = () => {
         )
     })
 
-    const getTrivia = (e: { preventDefault: () => void; }) => {
-        console.log(e);
-        
+    const getTrivia = (e) => {
+        e.preventDefault();
+        fetch(`https://opentdb.com/api.php?amount=10&category=${e.target[0].value}&type=multiple`)
+        .then(req => req.json())
+        .then(data => setQuestions(data.results))
     }
     
     return(
@@ -62,7 +64,7 @@ const Trivia:React.FC = () => {
                 <button type="submit">Find Trivia</button>
             </form>
             {questions.map((item: any, i:number) => {
-                const regex = /&quot;|&#039;/g;
+                const regex = /&quot;|&#039;|amp;|&#039;s/g;
                 // const regex2 = 
                 return (
                     <div key={i} className="question_div">
