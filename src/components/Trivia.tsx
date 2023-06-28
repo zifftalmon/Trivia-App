@@ -15,7 +15,7 @@ const Trivia:React.FC = () => {
     console.log(questions);
     
     const categoriesValues: any[] = [
-        'general Knowledge',
+        'General Knowledge',
         'Books',
         'Film',
         'Music',
@@ -23,11 +23,11 @@ const Trivia:React.FC = () => {
         'Television',
         'Video Games',
         'Board Games',
-        'Sceince & Nature',
+        'Science & Nature',
         'Computers',
         'Mathmetics',
         'Mythology',
-        'sports',
+        'Sports',
         'Geography',
         'History',
         'Politics',
@@ -55,7 +55,7 @@ const Trivia:React.FC = () => {
     }
     
     return(
-        <div>
+        <div className="triviaDiv">
             <form onSubmit={getTrivia}>
                 <select>
                     {categories}
@@ -64,16 +64,23 @@ const Trivia:React.FC = () => {
                 <button type="submit">Find Trivia</button>
             </form>
             {questions.map((item: any, i:number) => {
-                const regex = /&quot;|&#039;|amp;|&#039;s/g;
-                // const regex2 = 
+                const regex = /&quot;|&#039;|amp;/g;
                 return (
                     <div key={i} className="question_div">
                         <h2>{i+1}. {item.question.split(regex)}</h2>
                         <ul>
-                            <input type="radio" name={'trivia'} value={item.incorrect_answers[0]}/>{item.incorrect_answers[0]}<br/>
-                            <input type="radio" name={'trivia'} value={item.correct_answer}/>{item.correct_answer}<br/>
-                            <input type="radio" name={'trivia'} value={item.incorrect_answers[1]}/>{item.incorrect_answers[1]}<br/>
-                            <input type="radio" name={'trivia'} value={item.incorrect_answers[2]}/>{item.incorrect_answers[2]}<br/>
+                            <div>
+                                <input type="radio" name={'trivia'} value={item.incorrect_answers[0]}/>{item.incorrect_answers[0]}
+                            </div>
+                            <div>
+                                <input type="radio" name={'trivia'} value={item.correct_answer}/>{item.correct_answer}
+                            </div>
+                            <div>
+                                <input type="radio" name={'trivia'} value={item.incorrect_answers[1]}/>{item.incorrect_answers[1]}
+                            </div>
+                            <div>
+                                <input type="radio" name={'trivia'} value={item.incorrect_answers[2]}/>{item.incorrect_answers[2]}
+                            </div>
                         </ul>
                     </div>
                 )                
