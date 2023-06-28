@@ -1,6 +1,6 @@
 .triviaDiv form {
     display: inline-block;
-    border: 3px solid red;
+    /* border: 3px solid red; */
     padding: 5%;
     width: 50%;
     margin: 2%;
@@ -11,18 +11,20 @@
     border:3px solid red;
     width:80%;
     box-sizing: content-box;
+    margin: 1em;
 }
 .triviaDiv .question_div ul {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
-    grid-template-rows: repeat(auto-fill, minmax(150px, 200px));
-    border: 3px solid red;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 350px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 150px));
+    gap: 30px;
+    /* border: 3px solid red; */
     box-sizing: border-box;
 }
 .triviaDiv .question_div ul div {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     border-radius: 20px;
     width: 80%;
 }

@@ -64,22 +64,23 @@ const Trivia:React.FC = () => {
                 <button type="submit">Find Trivia</button>
             </form>
             {questions.map((item: any, i:number) => {
-                const regex = /&quot;|&#039;|amp;/g;
+                const regex = /&quot;|&#039;|amp;|&\Ww\cute;|&rsquo;/g;
                 return (
                     <div key={i} className="question_div">
                         <h2>{i+1}. {item.question.split(regex)}</h2>
                         <ul>
                             <div>
-                                <input type="radio" name={'trivia'} value={item.incorrect_answers[0]}/>{item.incorrect_answers[0]}
+                                <input type="radio" name='trivia' value={item.incorrect_answers[0]}/>
+                                <label>{item.incorrect_answers[0].split(regex)}</label>
                             </div>
                             <div>
-                                <input type="radio" name={'trivia'} value={item.correct_answer}/>{item.correct_answer}
+                                <input type="radio" name='trivia' value={item.correct_answer}/>{item.correct_answer.split(regex)}
                             </div>
                             <div>
-                                <input type="radio" name={'trivia'} value={item.incorrect_answers[1]}/>{item.incorrect_answers[1]}
+                                <input type="radio" name='trivia' value={item.incorrect_answers[1]}/>{item.incorrect_answers[1].split(regex)}
                             </div>
                             <div>
-                                <input type="radio" name={'trivia'} value={item.incorrect_answers[2]}/>{item.incorrect_answers[2]}
+                                <input type="radio" name='trivia' value={item.incorrect_answers[2]}/>{item.incorrect_answers[2].split(regex)}
                             </div>
                         </ul>
                     </div>
